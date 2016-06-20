@@ -1,0 +1,25 @@
+#include "math.h"       // For å bruk sinus funksjon.
+ 
+void setup() {
+ 
+  // Aktiver Serial Output
+  Serial.begin(9600);
+  while (!Serial);
+ 
+}
+ 
+void loop() {
+ 
+  // beskriver trekantpulsen oppover
+  for (double i = -1.0; i <= 1.0; i = i + 0.1) {
+    Serial.println (sin(i));
+    delay(10);
+  }
+ 
+  // beskriver trekantpulsen nedover
+  for (double i = 1.0; i >= -1.0; i = i - 0.1) {
+    Serial.println (sin(i));
+    delay(10);
+  }
+  
+}
