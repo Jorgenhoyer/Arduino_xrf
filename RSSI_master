@@ -1,3 +1,5 @@
+#include <TimeLib.h>
+
 int val = 0;
 void setup() {
 
@@ -31,10 +33,29 @@ void loop() {
     val++;
   }
 
-  if ((val == 24) and (Serial1.available() == 0)){
+  if ((val == 24) and (Serial1.available() == 0)) {
+    
     val = 0;
+    
     Serial.println();
+
+    Serial.print(hour());
+    printDigits(minute());
+    printDigits(second());
+    Serial.print(" ");
   
+    Serial.println();
+
+   
+
   }
- 
+
+}
+
+void printDigits(int digits) {
+  // utility function for digital clock display: prints preceding colon and leading 0
+  Serial.print(":");
+  if (digits < 10)
+    Serial.print('0');
+  Serial.print(digits);
 }
